@@ -1,0 +1,63 @@
+{# base twig behúzása #}
+{#{% extends 'base.html.twig' %}#}
+
+{# másik twig behúzása #}
+{% extends '@Blog/Folder/blog.html.twig' %}
+
+{% block title %}BlogHomeTitle{% endblock %}
+
+{% block stylesheets %}
+   {#<link rel="stylesheet" href="{{ asset('css/style.css') }}">#}
+    <link rel="stylesheet" href="{{ absolute_url(asset('css/style.css')) }}">
+{% endblock %}
+
+{% block header %}
+    {#<h5>Header</h5>#}
+    <h2>Menü</h2>
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h1>Article List</h1>
+     <img src="{{ asset('images/sziv.png') }}" alt="">
+    {% for article in articles %}
+        {{ include('@Blog/Folder/article_details.html.twig', {'article':article})}}
+    {% endfor %}
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/plugin.js') }}"></script>
+{% endblock %}
+
+{##}
+ {#{{  }} : say something#}
+ {#{%  %} : do something#}
+ {##}
+
+{#{{ 'Blog'|upper }}#}
+{#<br>#}
+
+{#{% for user in users %}#}
+    {#<p>{{ user.name }}</p>#}
+{#{% endfor %}#}
+{#<br>#}
+
+{#{% for user in users if user.best %}#}
+    {#<p>{{ user.name }}</p>#}
+{#{% else %}#}
+    {#<p>No users found</p>#}
+{#{% endfor %}#}
+{#<br>#}
+
+{#{% for user in users if user.best == false %}#}
+    {#<p>{{ user.name }}</p>#}
+{#{% else %}#}
+    {#<p>No users found</p>#}
+{#{% endfor %}#}
+{#<br>#}
+
+{#{% for user in users if user.name == 'Messi' %}#}
+    {#<p>{{ user.name }}</p>#}
+{#{% else %}#}
+    {#<p>No users found</p>#}
+{#{% endfor %}#}

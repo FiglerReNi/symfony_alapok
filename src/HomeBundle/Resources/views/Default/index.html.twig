@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Home Page</h1>
+
+    <br>
+
+    {# relative URL #}
+    <p><a href="{{ path('app_blog_index_route') }}">Relative app_blog_index_route</a></p>
+    {# "/Projektek/symfony_alapok/web/app_dev.php/blog/index" #}
+
+    {# absolute URL #}
+    <p><a href="{{ url('app_blog_index_route') }}">Absolute app_blog_index_route</a></p>
+    {# "http://localhost/Projektek/symfony_alapok/web/app_dev.php/blog/index" #}
+{% endblock %}
